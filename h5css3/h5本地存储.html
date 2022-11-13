@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="font-size:26px;color:brown">html5本地存储</p>
+    <div>
+    
+            用户名
+      
+        <input type="text" value="" id="username" name="username">
+    </div>
+    <div>
+       
+            密码
+     
+        <input type="password" value="" id="password" name="password">
+    </div>
+    <div>
+        <span class="showName" style="display:none;"></span>
+        <button class="showName" id="login">登录</button>
+        <button id="out">退出</button>
+    </div>
+</body>
+<script>
+    
+      
+       
+       
+      var login = document.querySelector("#login");
+      var out = document.querySelector("#out");
+      
+     //console.log(login);
+   
+  
+      function userInfo(){
+      var InfoStr = window.localStorage.getItem("message");
+      var userObj = JSON.parse(InfoStr);
+      if(userObj){
+          console.log("有用户信息")
+          document.querySelector(".showName").style.display = "inline-block";
+          document.querySelector(".showName").innerHTML = userObj.username;
+          document.querySelector("#login").style.display = "none";
+          document.querySelector("#username").value="";
+          document.querySelector("#password").value="";
+      }else{
+          console.log("无用户信息")
+          document.querySelector(".showName").style.display = "none";
+          document.querySelector("#login").style.display = "inline-block";
+      }
+     }
+    userInfo();
+    document.querySelector("#login").onclick = function() {
+        //console.log(document.querySelector("#username").value);
+    
+        var username = document.querySelector("#username").value;
+        var password = document.querySelector("#password").value;
+        // console.log(username.password);
+        if(username && password){
+            
+          var jsonStr = JSON.stringify({
+            "username": username,
+            "password": password
+          })
+          console.log(username,password)
+          window.localStorage.setItem("message",jsonStr);
+          userInfo();
+       }
+    }
+    document.querySelector("#out").onclick = function() {
+        window.localStorage.clear();
+        document.querySelector("#username").value="";
+        document.querySelector("#password").value="";
+        document.querySelector(".showName").style.display = "none";
+        document.querySelector("#login").style.display = "inline-block";
+    }
+   
+</script>
+</html>

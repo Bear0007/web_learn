@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="total" value="1" disabled="true">
+        <input type="button" id="add" value="+">
+        <input type="button" id="reduce" value="-" disabled="true">   
+    </div>
+</body>
+<script>
+    let total = document.getElementById("total")
+    let add = document.getElementById("add")
+    let reduce = document.getElementById("reduce")
+    // console.log(total,add,reduce)
+    add.addEventListener("click",function(){
+        total.innerHTML=total.value++
+        reduce.disabled = false;
+    })
+    
+    reduce.addEventListener("click",function(){
+        
+        total.innerHTML=total.value--
+        if(total.value <=1){
+            reduce.disabled = true;
+        }
+       
+    })
+</script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background:#ccc;}
+        .centen{
+            width: 100px;
+            height: 100px;
+            background:palegreen;
+            margin: 30px ;
+            text-align: center;
+            line-height:100px;
+            animation: move 2s ease-in 2 ;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* 名称 运行时间 曲线 开始之前的延时 播放的次数 是否轮流反播放 */
+        }
+        @keyframes move{
+            /* 开始 */
+            0%{
+                transform:translate(0,0)  
+            }
+            25%{
+                transform:translate(0,500px)
+            }
+            50%{
+                transform:translate(500px,500px)
+            }
+            75%{
+                transform:translate(500px,0px)
+            }
+            100%{
+                transform:translate(0,0)
+            }
+        }
+        .box2{
+            width:400px;
+            height:400px;
+            margin:40px;
+            position:relative;
+        }
+        .city{
+            /* width: 8px;
+            height: 8px;
+            background-color:plum;
+            border-radius: 50%; */
+            position: absolute;
+            top:50%;
+            left: 50%;
+            /* transform:translate(-50%,-50%); */
+            
+        }
+        .dotted{
+            width:8px;
+            height:8px;
+            background-color:plum;
+            border-radius: 50%;
+        }
+        .box2 div[class^=plural]{
+            border-radius: 50%;
+            width:8px;
+            height:8px;
+            box-shadow: 0 0 12px plum;
+            position:absolute;
+            transform:translate(-50%,-50%);
+            top:50%;
+            left: 50%;
+            animation:plu 1.2s linear infinite;
+            
+        }
+        .box2 div .plural1{
+            animation-delay: 0.4s;
+        }
+        .box2 div .plural2{
+            animation-delay: 0.8s;
+        }
+        @keyframes plu{
+            0%{
+                
+                
+            }
+            50%{
+                width:40px;
+                height:40px;
+                opacity: 1;
+            }
+            100%{
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+       .box3{
+        width:200px;
+        height:200px;
+        background: url(../h5css3/CSS3进阶素材-包含小熊动画/CSS3进阶素材-包含小熊动画/media/bear.png) no-repeat;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        animation:bear 1.2s steps(8) infinite,move 5s forwards;
+        position:absolute;
+       }
+       @keyframes bear{
+        0%{
+            background-position: 0 0;
+        }
+        100%{
+            background-position:-1600px 0;
+        }
+       }
+       @keyframes move{
+        0%{
+            left:0;
+        }
+        100%{
+            left:50%;
+            transform:translateX(-50%);
+        }
+       }
+    </style>
+</head>
+<body>
+    <div class="centen">
+        动画
+    </div>
+    <div class="box2">
+         <div class="city">
+            <div class="dotted"></div>
+            <div class="plural2"></div>
+            <div class="plural3"></div>
+            <div class="plural4"></div>
+         </div>
+         
+    </div>
+    <div class="box3"></div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul,li{
+        list-style: none;
+    }
+    .box{
+        display:flex;
+        flex-direction: column;
+        width:800px;
+        height:400px;
+        margin: 40px auto;
+    }
+    .box ul{
+        display:flex;
+        width:800px;
+        text-align:center;
+        justify-content:space-between;
+        height:60px;
+        background-color:antiquewhite;
+    }
+    .box ul li{
+        width:100%;
+        height:100%;
+        flex:1;
+        line-height: 60px;
+    }
+    .box ul:nth-child(1){
+        background-color:rgb(245, 200, 222);
+       
+    }
+</style>
+<body>
+    <div class="box">
+        <ul >
+            <li>
+                <input id="allbox" type="checkbox">
+               全选
+            </li>
+            <li>内容</li>
+            <li>价格</li>
+       </ul>
+       <ul>
+            <li><input class="cks" type="checkbox">选择1</li>
+            <li>小米手机</li>
+            <li>1999</li>
+       </ul>
+       <ul>
+        <li><input class="cks" type="checkbox">选择2</li>
+        <li>小米电视</li>
+        <li>4999</li>
+        </ul>
+         <ul>
+            <li><input class="cks" type="checkbox">选择3</li>
+            <li>小米台灯</li>
+            <li>3999</li>
+        </ul>
+    </div>
+</body>
+<script>
+    let allbox = document.querySelector('#allbox');
+    
+    let cks = document.querySelectorAll('input[class^=cks]');
+ 
+    allbox.addEventListener("click",function(){
+      
+       for(let i =0;i<cks.length;i++){
+        cks[i].checked = allbox.checked;
+       }
+    })
+    for(let i =0;i<cks.length;i++){
+        cks[i].addEventListener("click",function(){
+           console.log(i)
+           
+            for( let j =0;j<cks.length;j++){
+                if(cks[j].checked === false){
+                    //碰到有false的给全选设置false 并且return结束函数
+                    allbox.checked = false
+                    return 
+                }
+                
+            }
+            // 代码走到这里说明都被选中了
+            allbox.checked =true;
+           
+        })
+       
+    }
+</script>
+</html>

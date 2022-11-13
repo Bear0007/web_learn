@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div{
+            width:60vw;
+            height:3000px;
+            background-color:palegoldenrod;
+            margin:0 auto;
+        }
+        p{
+            position: fixed;
+            right:200px;
+            bottom:100px;
+            display: none;
+            background-color:aqua
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <p>返回顶部</p>
+</body>
+<script>
+    let div = document.querySelector('div')
+    let p = document.querySelector('p')
+    window.addEventListener('scroll',function(){ 
+        if(document.documentElement.scrollTop >=500){
+            p.style.display = 'block'
+        }else{
+            p.style.display = 'none'
+        }
+    })
+    p.addEventListener('click', function (){
+        document.documentElement.scrollTop = 0
+    })
+</script>
+</html>

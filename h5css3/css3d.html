@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective:400px;
+        }
+        ul,li{
+            list-style:none;
+        }
+        ul{
+            display: flex;
+        }
+        li{
+            width:150px;
+            height:35px;
+            perspective: 500px;
+            margin-left: 20px;;
+        }
+        li .box div:nth-child(1){
+            color:#fff;
+            background-color:rgb(98, 92, 92);
+        }
+        li .box div:nth-child(2){
+            color:#fff;
+            background-color:rgb(94, 78, 215);
+        }
+        .box{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all .4s;
+        }
+        .box:hover{
+            transform: rotateX(90deg);
+        }
+        .front{
+            z-index: 1;
+            transform: translateZ(17.5px);
+        }
+        .front,
+        .bottom{
+            position:absolute;
+            left: 0;
+            top:0;
+            width:100%;
+            height: 100%;
+           line-height: 35px;
+        }
+        .bottom{
+            transform: translateY(17.5px) rotateX(-90deg);
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            border-radius:50%;
+            position: relative;
+            transition: all .4s;
+            transform-style: preserve-3d;
+        }
+        .box2 div{
+            width:100%;
+            height:100%;
+            position:absolute;
+            top: 0;
+            left:0;
+            text-align: center;
+            line-height: 300px;
+            font-size:30px;
+            border-radius: 50%;
+        }
+        .box2:hover{
+            transform:rotateY(180deg);
+        }
+        .box2:hover div:nth-child(1){
+            opacity:0;
+            /* z-index: 0; */
+            
+        }
+        .box2 div:nth-child(1){
+            background:palegoldenrod;
+            z-index: 1;
+            transition: all .4s;
+        }
+        .box2 div:nth-child(2){
+            background:paleturquoise;
+            transform:rotateY(180deg);
+            transition: all .4s;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <div class="box">
+                <div class="front">my name is jackson</div>
+                <div class="bottom">3d转换</div>
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                <div class="front">my name is jackson</div>
+                <div class="bottom">3d转换</div>
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                <div class="front">my name is jackson</div>
+                <div class="bottom">3d转换</div>
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                <div class="front">my name is jackson</div>
+                <div class="bottom">3d转换</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="box2">
+        <!-- 两面反转案例 -->
+        <div >my name is jackson</div>
+        <div >hhha</div>
+    </div>
+</body>
+</html>

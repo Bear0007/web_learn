@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color{
+            background-color:paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <button class="color">第1个</button><button>第2个</button><button>第3个</button><button>第4个</button><button>第5个</button>
+</body>
+<script>
+    let btns = document.querySelectorAll('button')
+    for(let i = 0; i < btns.length;i++){
+        btns[i].addEventListener("click",function(){
+            console.log(i)
+            //干掉所有color
+            // for(let j = 0; j <btns.length;j++){
+            //     btns[j].classList.remove('color');
+            // }
+            
+            //只解除上次选中的就可
+            document.querySelector('.color').classList.remove('color')
+           
+            this.classList.add('color')
+            //给自己设置color
+        })
+    }
+</script>
+</html>

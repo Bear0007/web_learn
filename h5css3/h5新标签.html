@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test1{
+            width:300px;
+            height:300px;
+            background:#ddd;
+            position:relative;
+            padding:80px;
+            box-sizing: border-box; 
+            /* 设置padding不扩大盒子宽高 */
+        }
+        .test1::after { 
+            content: "这是伪元素";
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            width: 50px;
+            height: 50px;
+            background:rosybrown;
+        }
+        .test1::before{
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            width: 50px;
+            height: 50px;
+            background:rgb(26, 101, 131);
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            margin:0;
+        }
+        ul li:nth-of-type(2n){
+            color:rgb(32, 124, 203);
+        }
+        ul li:nth-child(2n+1){
+            color:red;
+        }
+        ul li[class=green]{ 
+            color:rgb(16, 247, 16);
+            /* li前要加ul css权重 */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" value="">
+    </div>
+    <button>提交</button>
+    <form action="">
+        <input type="email">
+        <input type="submit" value="提交">
+    </form>
+    
+    <div class="test1">
+        伪元素可以放置图标
+    </div>
+    <div></div>
+    <!-- 元素选择器 -->
+    <ul>
+
+        <li>11111111</li>
+        <li>222222222</li>
+        <div>hhha</div>
+        <div>hhhahaah999999</div>
+        <li>333333333</li>
+        <li>4444444444</li>
+        <li class="green">555555555</li>
+        <li>6666666666</li>
+        <li>777777777</li>
+        <li>888888888</li>
+    </ul>
+    <div class="bruce flex-ct-x" data-title="自动打字">
+        <div class="auto-typing">Do You Want To Know More About CSS Development Skill</div>
+    </div>
+</body>
+<script>
+    document.querySelector("button").onclick = function() {
+        console.log("220");
+        console.log(document.querySelector("input").value);
+    }
+</script>
+</html>

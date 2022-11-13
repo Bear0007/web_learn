@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height:40px;
+           
+            display: flex;
+            justify-content:space-around
+        }
+        .box div{
+            border: 1px solid #ccc;
+            width:24%;
+            height:100%;
+        }
+        .box .active{
+            background-color: palegoldenrod;
+        }
+        .list{
+
+        }
+        .list .active{
+            display:block;
+        }
+        .list div{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="active">第1个</div>
+        <div>第2个</div>
+        <div>第3个</div>
+        <div>第4个</div>
+    </div>
+    <div class="list">
+        <div class="active">1111111111</div>
+        <div>2222222222</div>
+        <div>33333333</div>
+        <div>4444444444</div>
+    </div>
+</body>
+<script>
+     let btns = document.querySelectorAll('.box div')
+     let lists = document.querySelectorAll('.list div')
+
+    for(let i = 0; i < btns.length;i++){
+        btns[i].addEventListener("click",function(){
+            // console.log(i)
+           
+            document.querySelector('.box .active').classList.remove('active')
+            document.querySelector('.list .active').classList.remove('active')
+           
+            this.classList.add('active')
+            lists[i].classList.add('active')
+
+            //给自己设置color
+        })
+    }
+</script>
+</html>

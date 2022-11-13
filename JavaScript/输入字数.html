@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .text{
+    margin:30px auto;
+    padding:4px;
+   }
+</style>
+<body>
+    <div>
+        <textarea  width="300px"
+        height="200px" class="text" rows="10" cols="30" placeholder=" 请输入内容" maxlength="200"></textarea>
+        <span class="count">0</span><span>/200</span>
+        <button>提交</button>
+    </div>
+</body>
+<script>
+   let text = document.querySelector('textarea');
+   let count = document.querySelector('.count');
+   text.addEventListener("input",function(){
+    count.innerHTML=text.value.length;
+   })
+</script>
+</html>
