@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>遇到激情两字替换成**</div>
+    <textarea name="" id="" cols="20" rows="10"></textarea>
+    <button>提交</button>
+    <p></p>
+</body>
+<script>
+    let text = document.querySelector('textarea')
+    let button = document.querySelector('button')
+    let p = document.querySelector('p')
+    button.addEventListener('click',function(){
+        p.innerHTML = text.value.replace(/激情/g,'**')
+    })
+</script>
+</html>

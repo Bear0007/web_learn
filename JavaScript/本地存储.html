@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // localStorage.setItem('uname','jackson')
+    // localStorage.setItem('age',22)
+    // localStorage.removeItem('uname') //删除
+   
+    let object = {
+        "uname":"jackson",
+        "age":22,
+        "like":"web"
+    }
+    
+    localStorage.setItem('obj',JSON.stringify(object))
+    console.log(JSON.parse(localStorage.getItem('obj')))
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Father{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        money(){
+            console.log('这个是父亲的钱')
+        }
+        sum(){
+            console.log(this.x + this.y)
+        }
+    }
+    class Son extends Father{
+        constructor(x,y){
+           super(x,y)//调用了父类中的构造函数 这个必须放在前面
+           this.x = x;
+           this.y = y;
+        }
+        sub(){
+            console.log(this.x - this.y)
+        }
+    }
+    let son = new Son
+    son.money()
+    let son2 = new Son(5,10)
+    son2.sum() //调用父方法
+    son2.sub() //调用自己的
+</script>
+</html>

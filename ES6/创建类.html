@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Star{
+        //类的共有属性放到constructor里面
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        like(){
+            console.log(this.name,this.age +'岁'+  '写bug');
+        }
+    }
+    //利用类创建对象，new
+    var jackson = new Star('jackson','22');
+    let mofangzhu = new Star('mofangzhu','80')
+    //类里面不需要写function
+    // console.log(jackson)
+    // jackson.like()
+    jackson.like()
+    mofangzhu.like()
+</script>
+</html>
