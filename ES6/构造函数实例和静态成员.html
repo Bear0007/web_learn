@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Star(name,age){
+        this.name = name;
+        this.age = age;
+        this.like = function(){
+            console.log('写bug')
+        }
+    }
+    let jackson = new Star('jackson',22)
+    jackson.like()
+    console.log(jackson.name)
+    console.log(Star.name)//实例成员不能通过构造函数来访问
+    Star.sex = '男'
+    console.log(jackson.sex) //静态成员不能通过实例对象来访问
+    console.log(Star.sex)
+</script>
+</html>

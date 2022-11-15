@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //借用父构造函数继承属性
+    function Father(name,age){
+        this.name = name
+        this.age = age
+    }
+    Father.prototype.money = function(){
+        console.log('1000万继承')
+    }
+    function Son(name,age,like){
+        //这里改变了this指向，其实是指向的Son，但是调用的父亲的方法
+        Father.call(this,name,age)
+        this.like = like
+    }
+    Son.prototype = new Father() //构造应该新的实例父亲，否则会出现深浅拷贝类似的问题
+    Son.prototype.constructor = Son //这里之前指向的是父亲实例，再改回指向Son
+    Son.prototype.speak = function(){
+        console.log('这个是儿子的方法')
+    }
+    // let jackson = new Son('jackson',22,'写bug')
+    // console.log(jackson)
+    console.log(Son.prototype)
+    console.log(Son.prototype.constructor)
+</script>
+</html>

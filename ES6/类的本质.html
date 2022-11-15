@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ES6之前通过 构造函数+ 原型 实现面向对象编程
+    构造函数有原型对象prototype
+    构造函数原型对象prototype里面有 constructor 指向构造函数本身
+    构造函数可以通过原型对象添加方法
+    构造函数创建的实例对象有__proto__ 原型指向 构造函数的原型对象
+    ES6通过 类class 实现面向对象编程
+
+
+    class本质还是function
+    类的所有方法都定义在prototype属性上
+    类创建的实例，里面也有__proto__指向类的prototype原型对象
+    ES6它的绝大部分功能，ES5都可以做到，新的class的写法只是让对象原型的写法更加清晰，更加面向对象编程的语法
+
+    ES6的类就像是语法糖  i=i+1  === i++
+</body>
+<script>
+  
+    /*
+    class本质还是function
+    类的所有方法都定义在prototype属性上
+    类创建的实例，里面也有__proto__指向类的prototype原型对象
+    ES6它的绝大部分功能，ES5都可以做到，新的class的写法只是让对象原型的写法更加清晰，更加面向对象编程的语法
+     ES6的类就像是语法糖  i=i+1  === i++
+    */
+//    ES6之前通过 构造函数+ 原型 实现面向对象编程
+//    构造函数有原型对象prototype
+//    构造函数原型对象prototype里面有 constructor 指向构造函数本身
+//    构造函数可以通过原型对象添加方法
+//    构造函数创建的实例对象有__proto__ 原型指向 构造函数的原型对象
+//    ES6通过 类class 实现面向对象编程
+    class Star{
+
+    }
+    console.log(Star)
+    console.log(Star.prototype)
+
+</script>
+</html>

@@ -16,6 +16,7 @@ class Tab{
         this.lis = this.main.querySelectorAll('li')
         this.section = this.main.querySelectorAll('section')
         this.remove = this.main.querySelectorAll('.icon-guanbi')//获取所有的删除按钮
+        this.spans = this.main.querySelectorAll('.fisrstnav li span:first-child') //获取的是第一个span
     }
     //初始化操作 让相关元素绑定事件
     init(){
@@ -25,6 +26,8 @@ class Tab{
             this.lis[i].index = i
             this.lis[i].addEventListener('click',this.toggleTab)//这里不加括号，加括号是立即调用
             this.remove[i].onclick = this.removeTab
+            this.spans[i].ondblclick = this.editTab //设置点击修改功能
+            this.section[i].ondblclick = this.editTab
         }
     }
     //切换功能
@@ -71,7 +74,28 @@ class Tab{
     }
     //修改功能
     editTab(){
-
+        //先获取span中的文字
+        let str  = this.innerHTML
+        console.log(str)
+        //双击禁止选中文字
+        
+        
+        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
+        // window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
+        // alert(22)
+        this.innerHTML = `<input type="text" value="${str}"/>`
+        let input = this.children[0]
+        // input.vlaue = str
+        input.select()//获取焦点 全选文字
+        // 当我们离开文本框把内容给到span
+        input.onblur = function() {
+            this.parentNode.innerHTML = this.value
+        }
+        input.onkeyup = function(e) {
+            if(e.key === 'Enter'){
+                this.blur()
+            }
+        }
     }
 }
 new Tab('#tab')

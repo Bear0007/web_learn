@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   function Star(name,age){
+        this.name = name;
+        this.age = age;
+        
+    }
+    //利用原型可以减少内存占用，可以实现方法共享
+    Star.prototype.like = function(){
+       
+            console.log('写bug')
+        
+    }
+    let jackson = new Star('jackson',22)
+    let bear = new Star('bear',23)
+    console.log(jackson.__proto__  === Star.prototype)
+    // __proto__对象原型和原型对象prototype是等价的，
+    // __proto__对象指向构造函数的prototype原型对象，它的意义是为对象的查找机制提供一个方向
+    bear.like()
+    jackson.like()
+</script>
+</html>
