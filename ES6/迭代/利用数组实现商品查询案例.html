@@ -85,18 +85,32 @@
         let newArr = data.filter(function(value,index,data){
             return value.price>start.value && value.price < end.value
         })
-        setData(newArr);
+
+        if(newArr.length >=1){
+            setData(newArr)
+        }else{
+            tbody.innerHTML ='没有查到内容'
+        }
+        
     })
     btn.addEventListener('click',function(){
         let arrNew = []
         let flag = data.some(function(value,index,array) {
         // return value>=20
-        if(value.name === product.vlaue){
+        console.log(value.pname,product.value)
+        if(value.pname == product.value){
             arrNew.push(value)
+            return true
         }
-        return true
+        
         })
-        setData(arrNew)
+        
+        if(flag){
+            setData(arrNew)
+        }else{
+            tbody.innerHTML ='没有查到内容'
+        }
+        
     })
     
 
