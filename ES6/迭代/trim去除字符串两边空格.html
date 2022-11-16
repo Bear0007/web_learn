@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>提交</button>
+    <h2></h2>
+</body>
+<script>
+    let input = document.querySelector('input')
+    let btn = document.querySelector('button')
+    let h2= document.querySelector('h2')
+    btn.addEventListener('click',function(){
+        let str = input.value.trim()// 这里返回一个新的字符串
+        if(str == ""){
+            alert('内容不能为空')
+        }else{
+            h2.innerHTML = str
+            console.log('去除空格的长度'+str.length)
+            console.log('原本的长度',input.value.length)
+        }
+    })
+</script>
+</html>

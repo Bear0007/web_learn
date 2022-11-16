@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 命名函数
+    function add(x, y) {
+        return x+y
+    }
+    //匿名函数
+    let sub = function(x, y) {
+        return x-y
+    }
+    // 第三种方式执行效率低，也不方便书写，因此使用较少
+    //利用 new Function('参数1','参数2','函数体')
+    let fun = new Function('x','y','console.log(x,y)')
+    fun(5,6)
+
+    //所有的函数都是 Function 的实例对象
+    console.dir(fun)
+    console.log(fun instanceof Object)
+</script>
+</html>

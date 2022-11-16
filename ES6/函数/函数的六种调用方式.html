@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //函数的调用方式
+    
+    //1.普通函数
+    function fn(){
+        console.log('ma name is jackson')
+    }
+    fn()
+    //2.对象的方法
+    let Obj ={
+        name:function(){
+            console.log('ma name is jackson')
+        }
+    }
+    Obj.name()
+    //3.构造函数
+    function Star(){
+
+    }
+    new Star()
+    //4.绑定事件
+    // btn.onclick = function() {
+        
+    // }
+    //5.定时器函数
+    // setTimeout(function(){
+    //     console.log(Date())
+    // },1000)
+//  setInterval(function(){
+//  console.log(Date())
+//  },1000)
+    //6.立即执行函数
+    (function(name){
+        console.log(name)
+    }('jackson'));
+</script>
+</html>
