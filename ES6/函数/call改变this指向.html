@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    // call 可以直接调用函数 function.call()
+    // call 可以改变函数内的this指向问题
+    // call 的主要作用可以实现继承
+    function Father(name,age){
+        this.name = name
+        this.age = age
+    }
+    function Son(name,age){
+        Father.call(this,name,age)
+    }
+    let son  = new Son('jackson',22)
+    console.log(son)
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>提交</button>
+    <button>提交</button>
+    <button>提交</button>
+    <button>提交</button>
+
+</body>
+<script>
+    let btns = document.querySelectorAll('button')
+    for(let i = 0; i < btns.length; i++){
+        btns[i].addEventListener("click",function(){
+            this.disabled = true
+            let that = this //最早使用定义that保存this然后在定时器函数中使用that
+            setTimeout(function(){
+            //    that.disabled = false
+            this.disabled =false
+            }.bind(this),2000) //利用bind绑定，不需要进行在定义，直接指向当前点击的btn
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 'use strict' //开启严格模式
+    // 1. 变量名必须先声明在使用
+    // num = 10;
+    // console.log(num);
+    // 2 不能随意删除已经声明好的变量
+    // let num = 10;
+    // delete num;
+    // num = null
+    // 3. 严格模式下全局作用域中函数的 this 指向的 undefined
+    // function fn(){
+    //     console.log(this)
+    // }
+    // fn()
+    // 4.严格模式下，如果构造函数不加new调用，this指向
+    // function Star(){
+    //     this.name = 'jackson'
+    // }
+    // // Star()
+    // let name = new Star()
+    // console.log(name.name)
+    // 5. 定时器 this指向的是 window
+    // setTimeout(function() {
+    //     console.log(this)
+    // },1000)
+    // 6.函数不能有重名的参数
+    // function add(a,a){
+    //     console.log(a + a)
+    // }
+    // add( 1,5) //实际等于10 因为a=1 a=5 覆盖掉了
+
+   
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj = {
+        name: 'jackson'
+    }
+    function fn(a,b){
+        console.log(this)
+        console.log(a+b)
+    }
+    let newfn = fn.bind(obj,5,6)
+    newfn()
+    //bind 绑定
+    //bind 不会调用原来的函数， 可以改变原来函数内部的this指向
+    // 返回的是原函数改变this之后产生的新函数
+</script>
+</html>

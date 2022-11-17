@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj = {
+        name:'jackson'
+    }
+    function fn(arr){
+        console.log(this)
+        console.log(arr)
+    }
+    fn.apply(obj,['jackson'])
+    // apply也可以调用函数和改变this指向
+    // 他的参数必须是数组（伪数组）
+    // apply的应用 借助数学内置对象求最大值
+    const arr = [5,6,7,5,9,4,6]
+    let max = Math.max.apply(Math,arr) //这里this指向数学内置对象Math，也可以写null
+    console.log(max)
+    </script>
+</html>
