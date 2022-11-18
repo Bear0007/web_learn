@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        
+    </ul>
+</body>
+<script>
+    let ul = document.querySelector('ul')
+    //以前用字符串拼接方式
+    // let name = 'jackson'
+    // let oli = "<li>\
+    //     <b>" + name+"</b>\
+    //     </li>"
+    // ul.innerHTML = oli
+    let arr = ['jackson','bear','hhha']
+    let newList = arr.map(function(item,index){
+        return `<li class="${index == 1 ? 'active' : ''}">
+                <b>${item}</b>
+            </li>`
+    })
+    ul.innerHTML = newList.join("") //join 用空字符代替逗号
+</script>
+</html>

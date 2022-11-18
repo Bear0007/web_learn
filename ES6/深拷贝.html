@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+     let obj ={
+        name: 'jackson',
+        age: 18,
+        msg:{
+            like:'写bug'
+        },
+        color:['red','green','blue']
+    }
+    let o={}
+    //封装递归函数
+    function deepCopy(newObj,oldObj) {
+        for(let k in oldObj){
+            let item = oldObj[k]
+            //判断这个值是否为数组 必须先判断数组，因为数组也属于对象
+            if(item instanceof Array){
+                newObj[k] = []
+                deepCopy(newObj[k],item)
+            }else if(item instanceof Object){
+                //判断这个是否为对象
+                newObj[k] = {}
+                deepCopy(newObj[k],item)
+            }else{
+                //属于简单类型
+                newObj[k] = item
+            }
+        }
+    }
+    deepCopy(o,obj)
+    
+    o.like = '天天写bug'
+    o.color[0] = '#000'
+    console.log(o)
+    console.log('--------------------')
+    console.log(obj)
+</script>
+</html>

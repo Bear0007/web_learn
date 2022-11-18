@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+    let arr1 = [1, 2, 3, 4, 5]
+    console.log(...arr1) //这里会将逗号编程分隔符
+    let arr2 = [5,6,7,8]
+    let arr3 =[...arr1,...arr2] // 合并数组
+    console.log(arr3) //
+
+    //合并数组第二种方式
+    arr1.push(...arr2) //
+    console.log(...arr1) //
+
+    // 利用扩展运算将为数组转换为真正的数组
+    let divs = document.querySelectorAll('div')
+    console.log(divs)
+     divs = [...divs]
+    console.log(divs)
+
+</script>
+</html>
