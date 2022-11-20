@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let kes = {
+        name:Symbol('name'), 
+        age:Symbol('age'),
+        test:Symbol('test'),
+    }
+    let obj = {
+        [kes.name]:'jackson', 
+        [kes.age]:22,
+        [kes.test](){
+            console.log('test')
+        }
+
+    }
+    obj.name = 'bear'
+    console.log(obj)
+
+    // for in
+    for (let i in obj) {
+        console.log(i)
+    }
+    // Reflect.ownKeys(obj)遍历
+    Reflect.ownKeys(obj).forEach((item)=>{
+        console.log(item,obj[item])
+    })
+</script>
+</html>

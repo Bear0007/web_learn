@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"> 输入内容控制台显示
+</body>
+<script>
+    // 箭头函数：写法简洁
+    let test = ()=> {
+        return '2222'
+    }
+    console.log(test())
+
+    // 箭头函数 this指向的是上下文作用域
+    let input = document.querySelector('input')
+    // input.addEventListener('input',function(){
+    //     let that = this //我们需要从外面定义一个this 
+    //     setTimeout(function(){
+    //         console.log(that.value)
+    //     },500)
+    // })
+
+    // 使用箭头函数
+    input.addEventListener('input',function(){
+        
+        setTimeout(()=>{
+            console.log(this.value)
+        },500)
+    })
+</script>
+</html>

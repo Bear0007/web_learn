@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let s1 = Symbol() //生成了一个Symbol类型数据
+    let s2 = Symbol() //
+    console.log(typeof s1)
+    console.log(s1 === s2)
+
+    // 1.不能进行运算
+    // console.log(s1 > 555)
+    //2. 显示调用 toString()
+    console.log(s1.toString()+'aa')
+
+    //3.隐式转换boolean
+    if(s1){
+        console.log('隐式转换')
+    }
+
+    let name = Symbol()
+    let age = Symbol()
+    let obj = {
+        [name]:'jackson', //这里必须使用[] 如果直接使用name相当于赋值
+        [age]:22
+    }
+    console.log(obj) //这样name就是独一无二的
+</script>
+</html>

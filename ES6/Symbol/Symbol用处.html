@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 作为常量
+    const Video = Symbol()
+    const Audio = Symbol()
+    const Image = Symbol()
+    function play(type){
+        switch(type){
+            case Video:console.log('视频'); break;
+            case Audio:console.log('音频'); break;
+            case Image:console.log('图片'); break;
+            default:console.log('未识别')
+        }
+    }
+    play(Video)
+</script>
+</html>

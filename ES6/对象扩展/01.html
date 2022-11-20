@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 1.对象简写
+    // let name = 'jackson'
+    // let obj ={
+    //     name, // name = name
+    //     test(){
+
+    //     }, //可以把function省去
+    //     test1:function(){
+
+    //     }
+    // }
+    // 2. 对象属性 表达式
+    // let name = 'a'
+    // let obj = {
+    //     [name+'bc'] :'jackson',
+    //     [name + 'test'](){
+
+    //     }
+    // }
+    // console.log(obj) //{abc: 'jackson', atest: ƒ}
+
+    //3.扩展运算符  ES2018
+    // let obj={
+    //     name: 'jackson'
+    // }
+    // let obj1 ={...obj}
+    // let obj2 ={age:22}
+    // let obj3 ={name:'bear'}
+    // let obj4 ={...obj1,...obj2,...obj3}
+    // console.log(obj4) //如果有重名，会被后面的覆盖
+    // console.log(obj1) // 扩展运算符不会影响之前的值
+
+    //4. Object.assign(obj) ES6  复制链接对象
+    // let obj1={
+    //     name: 'jackson'
+    // }
+    // let obj2 ={age:22}
+    // let obj3 ={name:'bear'}
+    // let obj4 =Object.assign(obj1,obj2,obj3)
+    // console.log(obj4)
+    // console.log(obj1) //这种方法会影响之前的值
+    
+    // Object.is 判断两个值是否相等
+    console.log(Object.is(5,5)) //true
+    console.log(Object.is(5,'5')) // false
+
+    console.log(Object.is(NaN,NaN)) //true
+
+    console.log(NaN === NaN) // false
+    console.log(Object.is(+0,-0)) // false   
+    console.log(+0 === -0)   //true
+</script>
+</html>
