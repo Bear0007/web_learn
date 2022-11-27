@@ -1,0 +1,44 @@
+<!--
+作者：Jackson
+时间：2022/11/26
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //创建一个复杂的数据类型
+        let list = [1,1,2,'jackson','bear','jackson',[1,2],[1,2],[3,4],
+        {name:'jackson',age:22},
+        {name:'jackson',age:22},
+        {name:'bear',age:22},
+        NaN,NaN,
+        undefined,undefined
+        ]
+        console.log(list) //看一下原始的内容
+        //创建函数封装方法
+        function setList(arr){
+            let res = new Set()
+            return arr.filter((item)=>{ //利用数组的过滤器
+                let id = JSON.stringify(item) //转化为JSON字符串来进行判断
+                if(res.has(id)){ //利用has属性进行查找，如果有就return false 没有就进行添加
+                    return false
+                }else{
+                    res.add(id)
+                    return true
+                }
+            })
+        }
+        console.log(setList(list)) //调用方法
+        
+    </script>
+</html>

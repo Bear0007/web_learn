@@ -1,0 +1,39 @@
+<!--
+作者：Jackson
+时间：2022/11/26
+内容：iterator迭代器使用
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let arr = ['jackson','bear','hhha']
+        // for(let item of arr){ 
+        //     console.log(item)
+        // }
+        // 一个数据结构只要有Symbol.iterator属性，就代表可以遍历
+        //- Array
+        // - Set
+        // - Map
+        // - String
+        // - arguments 对象
+        // - NodeList 对象
+        // 以上都可以进行遍历
+
+        let item = arr[Symbol.iterator]()
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+
+    </script>
+</html>

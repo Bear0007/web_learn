@@ -1,0 +1,73 @@
+<!--
+作者：Jackson
+时间：2022/11/26
+内容：给对象设置iterator
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+            <li>004</li>
+            <li>005</li>
+        </ul>
+    </body>
+    <script>
+        // 线性有序的对象遍历
+        let obj = {
+            0:'jackson',
+            1:'bear',
+            2:'hhha',
+            length:3,
+            [Symbol.iterator]:Array.prototype[Symbol.iterator]
+        }
+        for(let item of obj){
+            console.log(item)
+        }
+        console.log("---------------")
+        //无序的遍历 给对象添加iterator属性
+        let obj2 = {
+            name: 'jackson',
+            code:200,
+            list:['jackson','bear','hhhah'],
+            [Symbol.iterator](){
+                let index = 0
+                return {
+                    next:()=>{
+                        return {
+                            value:this.list[index++],
+                            done:(this.list.length+1)<=index?true:false
+                        }
+                    }
+                }
+            }
+        }
+        // for(let item of obj2.list){  //这里遍历obj2.list可以遍历
+        //     console.log(item)
+        // }
+        for(let item of obj2){
+            console.log(item)
+        } 
+        let item = obj2[Symbol.iterator]()
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())  
+        console.log(item.next())    
+        
+        console.log([...obj2]) //解构赋值
+        // nodelist
+        let lis = document.querySelectorAll('li')
+        console.log([...lis]) 
+        console.log(Array.from(lis)) //和上一种方法一样
+    </script>
+</html>
