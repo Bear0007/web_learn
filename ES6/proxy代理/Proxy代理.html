@@ -1,0 +1,40 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="box"></div>
+    </body>
+    <script>
+    //的作用是在对象和和对象的属性值之间设置一个代理，获取该对象的值或者设置该对象的值， 以及实例化等等多种操作， 都会被拦截住， 经过这一层我们可以统一处理，我们可以认为它就是“代理器”
+    //Proxy本质上属于元编程非破坏性数据劫持，在原对象的基础上进行了功能的衍生而又不影响原对象，符合松耦合高内聚的设计理念。
+        let obj={}
+        let proxy = new Proxy(obj,{
+            get(target,key){
+                console.log('get',target,key)
+                return target[key]
+            },
+            set(target,key,value){
+                console.log('set')
+                if(key === 'data'){
+                    box.innerHTML = value
+                }
+                target[key] = value
+            },
+            has(){
+                // return false
+            }
+        })
+        console.log(obj,proxy)
+    </script>
+</html>

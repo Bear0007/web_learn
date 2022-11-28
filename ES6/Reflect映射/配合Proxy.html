@@ -1,0 +1,42 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+    //配合 Proxy解决默认行为 这样不需要重写方法，直接拦截进行操作
+    let s = [12,11,13]
+        let proxy  = new Proxy(s,{
+            get(target,key){
+                console.log('get',target,key)
+                // //判断是否为方法
+                // if(target[key] instanceof Function){
+                //     //改变this 指向  bind call apply
+                //     return target[key].bind(target)
+                // }
+                // return target[key]
+
+                return Reflect.get(...arguments) //解构赋值 
+            },
+            set(target,key,value){
+                console.log('set',target,key,value)
+                //默认方法
+                return Reflect.set(...arguments) //等同于下面的
+                // return Reflect.set(target,key,value)
+            }
+        })
+        console.log(proxy,s)
+    </script>
+</html>

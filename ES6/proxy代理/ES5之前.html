@@ -1,0 +1,33 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="box"></div>
+    </body>
+    <script>
+        let obj = {}
+        Object.defineProperty(obj,'data',{
+            get(){
+                console.log('get')
+                return box.innerHTML
+            },
+            set(value){
+                console.log('set')
+                box.innerHTML = value
+            }
+        })
+        //通过修改data 属性 给页面动态显示内容
+        console.log(obj)
+    </script>
+</html>

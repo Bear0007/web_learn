@@ -1,0 +1,60 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：map 属性和方法 键值对
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let m1 = new Map([
+            ["key","value"],
+            ['name','jackson'],
+            ['age',22]
+        ])
+        console.log(m1)
+        
+        m2 = new Map() 
+        let obj = {aaa:1}
+        m2.set('key','value')  //设置
+        m2.set('name','jackson')
+        m2.set(obj,'object')
+        console.log(m2)
+
+        // set get has delete clear size 和Set属性差不多
+        
+        console.log(m2.get('key')) //查找key中的value值
+
+        console.log(m2.has('name'))
+
+        console.log(m2.has(obj)) //可以通过地址查询对象Object
+
+        m2.delete('name')
+        console.log(m2.size) //长度
+        m2.clear() //清除
+        console.log(m2)
+
+        //遍历  keys() values() entries() for of forEach
+        for(let i of m1.keys()){ //key
+            console.log(i)
+        }
+        for(let i of m1.values()){ //value
+            console.log(i)
+        }
+        for(let [item,value] of m1.entries()){
+            console.log(item,value)
+        }
+        m1.forEach((item,value)=>{
+            console.log(item,value)
+        })
+    </script>
+</html>

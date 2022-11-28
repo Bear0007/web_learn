@@ -1,0 +1,37 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let s = new Set()
+        let proxy  = new Proxy(s,{
+            get(target,key){
+                console.log('get',target,key)
+                //判断是否为方法
+                if(target[key] instanceof Function){
+                    //改变this 指向  bind call apply
+                    return target[key].bind(target)
+                }
+                return target[key]
+            },
+            set(target,key,value){
+                console.log('set',target,key,value)
+                //默认方法
+            }
+        })
+        console.log(proxy,s)
+    </script>
+</html>

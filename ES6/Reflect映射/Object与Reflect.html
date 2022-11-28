@@ -1,0 +1,37 @@
+<!--
+作者：Jackson
+时间：2022/11/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //代替Object的某些方法
+        //Reflect 可以用于获取目标对象的行为，它与 Object 类似，但是更易读，为操作对象提供了一种更优雅的方式。它的方法与 Proxy 是对应的。
+        let obj = {}
+        Reflect.defineProperty(obj,'name',{
+            value: 'jackson',
+            writable: false, //不允许写
+            configurable:false //不允许删除
+        })
+        console.log(obj)
+
+        let obj2 = {}
+        Object.defineProperty(obj2,'name',{
+            value: 'bear',
+            writable: false, //不允许写
+            configurable:false //不允许删除
+        })
+        console.log(obj2)
+    </script>
+</html>

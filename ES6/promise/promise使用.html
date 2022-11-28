@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let promise = new Promise(function(resolve, reject) {
+        //执行器函数
+        setTimeout(()=>{
+            // 一旦成功或者失败就订死了 不会改变
+            resolve('成功') //有三种状态，待定 成功 失败 
+            reject('失败')
+        },1000)
+        
+    })
+    promise.then(function(res){
+        console.log(res,'哈哈哈')
+        return 222 //这里return 也可以写promise请求
+    }).then(function(res){
+        console.log(res,'第二个') //接收的参数就是第一个请求的返回值
+    }).catch((error)=>{
+        console.log(error,'shibai')
+    })
+
+    let promise2 = new Promise(function(resolve, reject) {
+        //执行器函数
+        setTimeout(()=>{
+            // 一旦成功或者失败就订死了 不会改变
+            resolve('成功') //有三种状态，待定 成功 失败 
+            reject('失败')
+        },2000)
+        
+    })
+    promise2.then(function(res){
+        console.log(res,'哈哈哈')
+        return 222 //这里return 也可以写promise请求
+    }).then(function(res){
+        console.log(res,'第二个') //接收的参数就是第一个请求的返回值
+    }).catch((error)=>{
+        console.log(error,'shibai')
+    })
+    
+    let promise3 = new Promise(function(resolve, reject) {
+        //执行器函数
+        setTimeout(()=>{
+            // 一旦成功或者失败就订死了 不会改变
+            resolve('成功') //有三种状态，待定 成功 失败 
+            reject('失败')
+        },5555)
+        
+    })
+    promise3.then(function(res){
+        console.log(res,'哈哈哈')
+        return 222 //这里return 也可以写promise请求
+    }).then(function(res){
+        console.log(res,'第二个') //接收的参数就是第一个请求的返回值
+    }).catch((error)=>{
+        console.log(error,'shibai')
+    })
+    //Promise.all 一起
+    // let p = Promise.all([promise,promise2,promise3]).then(function(res){
+    //     console.log(res,'都成功了')
+    // }).catch((error)=>{
+    //     console.log(error,'失败了')
+    // })
+
+    //Promise.race 看哪个快，可以开好几个服务器，哪个响应快就接哪里的数据，防止服务器挂掉
+    let p2 = Promise.race([promise,promise2,promise3]).then(function(res){
+        console.log(res,'跑的快')
+    }).catch((error)=>{
+        console.log(error,'失败了')
+    })
+</script>
+</html>
