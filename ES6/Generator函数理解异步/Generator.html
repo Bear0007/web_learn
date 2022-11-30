@@ -1,0 +1,67 @@
+<!--
+作者：Jackson
+时间：2022/11/30
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+     function ajax(url){
+         return new Promise((resolve, reject)=>{
+            let xhr = new XMLHttpRequest()
+            xhr.open('get',url,true)
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        resolve(JSON.parse(xhr.responseText))
+                    }else{
+                        reject(xhr.responseText)
+                    }
+                }
+            }
+         })
+     }
+     console.log(ajax('1.json'))
+     function* gen() {
+            let res = yield ajax("1.json")
+            console.log("第一个请求的结果", res)
+            let res2 = yield ajax("2.json", res)
+            console.log("第二个请求", res2)
+    }
+
+     //自动版本
+      function AutoRun(gen) {
+            let g = gen();
+            function next(data) {
+                let res = g.next(data);
+                if (res.done) return
+                res.value.then(function (data) {
+                    next(data);
+                });
+            }
+            next();
+        }
+
+        AutoRun(gen)
+
+    //手写方法
+        let g = gen()
+        g.next().value.then((data)=>{
+            // console.log(data)
+            g.next(data).value.then((res)=>{
+                g.next(res)
+            })
+        })
+    </script>
+</html>
