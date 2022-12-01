@@ -1,0 +1,71 @@
+<!--
+作者：Jackson
+时间：2022/12/01
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div class="box">
+            <h1></h1>
+            <ul></ul>
+        </div>
+        <div class="box2">
+            <h1></h1>
+            <img width="200px;" src="" alt="">
+            <ul></ul>
+        </div>
+    </body>
+    <script>
+    let data1 = {
+        title: 'jackson',
+        list:['jackson','bear','大熊']
+    }
+    let data2 = {
+        title:'风景',
+        image:'https://img2.baidu.com/it/u=1395980100,2999837177&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675',
+        list:['jackson1312','bear312123','大大大熊']
+    }
+    class CreatBox{
+        constructor(select,data){
+            this.ele = document.querySelector(select)
+            this.title = data.title
+            this.list = data.list
+            this.render()
+        }
+        render(){
+            let oh1 = this.ele.querySelector('h1')
+            let ul1 = this.ele.querySelector('ul')
+            oh1.innerHTML = this.title
+            ul1.innerHTML = this.list.map(item=>
+                `<li>${item}</li>`
+            ).join("")
+        }
+    }
+    let obj = new CreatBox('.box',data1)
+
+    class son extends  CreatBox{
+        constructor(select,data){
+            super(select,data)
+            this.img = data.image
+
+            this.render() //这里重新调用一下，因为img没被渲染
+        }
+        
+        
+        render(){
+            super.render()
+            let imgUrl = this.ele.querySelector('img')
+            imgUrl.src = this.img
+        }
+    }
+    new son('.box2',data2)
+    </script>
+</html>
