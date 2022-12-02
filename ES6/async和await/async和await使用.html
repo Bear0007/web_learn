@@ -1,0 +1,38 @@
+<!--
+作者：Jackson
+时间：2022/12/02
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+    function ajax(){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log("111")
+                resolve("data:11111")
+                // reject("error122")
+            },1000)
+        })
+    }
+    async function test(){
+        let res = await ajax()
+        console.log(res)
+    }
+    test().then(function(){
+        console.log('chenggong')
+    }).catch((error)=>{
+        console.log(error,'shibai')
+    })
+    </script>
+</html>

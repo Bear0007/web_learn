@@ -1,0 +1,65 @@
+<!--
+作者：Jackson
+时间：2022/12/02
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <p></p>
+        <div></div>
+    </body>
+    <script>
+      function ajax(url){
+         return new Promise((resolve, reject)=>{
+            let xhr = new XMLHttpRequest()
+            xhr.open('get',url,true)
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        resolve(JSON.parse(xhr.responseText))
+                    }else{
+                        reject(xhr.responseText)
+                    }
+                }
+            }
+         })
+     }
+     let p  = document.querySelector('p')
+     let div = document.querySelector('div')
+    //  async function test(){
+    //    try{
+    //     // Promise.all
+    //     let obj = await Promise.all([ajax("1.json"),ajax("2.json")])
+    //     console.log(obj)
+      
+    //    }
+    //    catch(err){
+    //     console.log(err)
+    //    }
+    //  }
+     async function test(){
+       try{
+        let obj = await ajax("1.json")
+        console.log(obj)
+        p.innerHTML = JSON.stringify(obj)
+        let obj2 = await ajax("2.json")
+        div.innerHTML = JSON.stringify(obj2)
+        console.log(obj2)
+        console.log('渲染页面')
+       }
+       catch(err){
+        console.log(err)
+       }
+     }
+     test()
+    </script>
+</html>

@@ -1,0 +1,29 @@
+<!--
+作者：Jackson
+时间：2022/12/02
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        异步加载
+        私密
+        重名不怕
+        依赖不乱
+    </body>
+    <script type="module"> //必须加type属性
+        import obj1 from './1.js' //可以随意起名
+        console.log(obj1)
+
+        // 方式2
+        import {b1,b2 as bbb2,test} from './2.js' // 定义什么名字就是什么 可以重命名as
+        console.log(b1,bbb2,test)
+    </script>
+</html>
