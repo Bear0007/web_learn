@@ -1,0 +1,50 @@
+<!--
+作者：Jackson
+时间：2022/12/03
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let obj = {
+            name: 'jackson',
+            age:22,
+            like:'写bug'
+        }
+        let {name,...other} = obj;
+        console.log(name,other)
+
+       let obj2 = {
+        time:'2022.12.3'
+       }
+       //合并对象  如果有重复是后面覆盖前面的内容
+       obj = {...obj,...obj2}
+       console.log(obj)
+
+        function ajax(options){
+            const defaultOptions = {
+                method: 'GET',
+                async: true
+            }
+            options = {...defaultOptions,...options}
+            console.log(options)
+       }
+       ajax({
+        url: 'http://localhost'
+       })
+       ajax({
+        url: 'http://localhost:80',
+        method: 'POST'
+       })
+    </script>
+</html>

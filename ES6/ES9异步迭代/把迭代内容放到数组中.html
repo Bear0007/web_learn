@@ -1,0 +1,43 @@
+<!--
+作者：Jackson
+时间：2022/12/03
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+    function ajax(t){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                resolve('成功')
+                console.log("data-",t)
+            },t)
+        })
+    }
+    async function * gen(){
+        yield ajax(1000)
+        yield ajax(2000)
+        yield ajax(3000)
+    }
+    async function test(){
+        let g = gen()
+        let list = [g.next(),g.next(),g.next()]
+        for await(let i of list){
+            console.log('start',Date.now())
+            console.log(i)
+            console.log("end",Date.now())
+        }
+    }
+    test()
+    </script>
+</html>

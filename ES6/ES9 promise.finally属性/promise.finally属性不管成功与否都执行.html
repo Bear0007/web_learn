@@ -1,0 +1,32 @@
+<!--
+作者：Jackson
+时间：2022/12/03
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function ajax(){
+            return new Promise((resolve, reject)=>{
+                resolve('成功data1')
+            })
+        }
+        ajax().then((data)=>{
+            console.log(data,'成功')
+        }).catch((error)=>{
+            console.log(error,'失败')
+        }).finally(()=>{
+            console.log('不管成功或者失败都执行，可以释放内存等等')
+        })
+    </script>
+</html>

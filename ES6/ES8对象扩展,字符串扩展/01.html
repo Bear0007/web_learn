@@ -1,0 +1,30 @@
+<!--
+作者：Jackson
+时间：2022/12/03
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let obj = {
+            name:'jackson',
+            age: 22,
+            like:'写bug'
+        }
+        console.log(Object.getOwnPropertyDescriptors(obj))
+        let obj2 = {}
+        // 克隆
+        Object.assign(obj2,Object.getOwnPropertyDescriptors(obj))
+        console.log(obj2)
+    </script>
+</html>

@@ -1,0 +1,30 @@
+<!--
+作者：Jackson
+时间：2022/12/03
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let name = 'jackson'
+        console.log(name.padStart(10,'x'))
+        console.log(name.padEnd(10,'x'))
+        let list = [];
+        //不足两位补0
+        for(let i = 0; i < 13; i++){
+            // list.push(String(i).padStart(2,'0'))
+            list.push((i + '').padStart(2,'0'));
+        }
+        console.log(list)
+    </script>
+</html>
