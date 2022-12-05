@@ -1,0 +1,49 @@
+<!--
+作者：Jackson
+时间：2022/12/05
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //数组的 flat flatMap 把二维数组转换成一维数组
+        let arr = [
+            [1,2,3,4],
+            [5,6,7]
+        ]
+        console.log(arr.flat())
+
+        // Symbol对象的 description 获取当时设置的内容
+        let s1 = Symbol('name')
+        console.log(s1.description)
+
+        // try catch(e){}  catch可以省略参数
+        try{
+            
+        }catch{
+            
+        }
+        async function test(){
+            try{
+                await new Promise(function(resolve, reject){
+                    setTimeout(()=>{
+                        reject();
+                    },500)
+                })
+            }catch{
+                console.log('超时错误')
+            }
+        }
+        test()
+    </script>
+</html>

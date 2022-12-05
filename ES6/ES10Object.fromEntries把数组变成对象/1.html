@@ -1,0 +1,46 @@
+<!--
+作者：Jackson
+时间：2022/12/05
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let arr = [["name","jackson"],["age",22]];
+        console.log(Object.fromEntries(arr))
+        //用处1
+        let m = new Map()
+        m.set("name","jackson")
+        m.set("age","22")
+        console.log(Object.fromEntries(m))
+
+        //用处2
+        let str = "name=jackson&age=22"
+        let newStr = new URLSearchParams(str)
+        console.log(Object.fromEntries(newStr))
+
+        //用处3 
+        let obj = {
+            "A":["a1","a2","a3"],
+            "B":["b1","b2"],
+            "C":["c1"]
+        }
+        let myarr = Object.entries(obj)
+        console.log(myarr)
+        let newArr = myarr.map(([key,value])=>
+            [key,value.length]
+        )
+        // console.log(newArr)
+        console.log(Object.fromEntries(newArr))
+    </script>
+</html>

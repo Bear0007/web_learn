@@ -1,0 +1,46 @@
+<!--
+作者：Jackson
+时间：2022/12/05
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+
+    function ajax(url){
+         return new Promise((resolve, reject)=>{
+            let xhr = new XMLHttpRequest()
+            xhr.open('get',url,true)
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        resolve(JSON.parse(xhr.responseText))
+                    }else{
+                        reject(xhr.responseText)
+                    }
+                }
+            }
+         }) 
+     }
+     //不会执行catch 返回状态，可以对状态来判断响应成功
+    Promise.allSettled([ajax('1.json'),ajax('2.json'),ajax('3.json')]).then(function(res){
+        console.log(res)
+        console.log(res.filter(item=>item.status == 'fulfilled'))
+        let res1 = res.filter(item=>item.status == "fulfilled")
+        console.log(res1.flatMap((item)=>
+            item.value.data
+        ))
+    })
+    </script>
+</html>

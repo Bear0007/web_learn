@@ -1,0 +1,45 @@
+<!--
+作者：Jackson
+时间：2022/12/05
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <button>登录</button><span></span>
+    </body>
+    <script  type="module">
+        let btn = document.querySelector('button')
+        let span = document.querySelector('span')
+
+        function login(){
+            return "普通用户"
+        }
+        btn.addEventListener("click",function(){
+            let role = login()
+            render(role)
+        })
+        async function render(role){
+            let name
+            if(role == "管理员"){
+                let  res = await import("./1.js")
+                 console.log(res.default.name)
+                 name = res.default.name
+            }else{
+                let res = await import("./2.js")
+                console.log(res)
+                 name =res.default.name
+
+            }
+            console.log(name)
+            span.innerHTML = name
+        }
+    </script>
+</html>
