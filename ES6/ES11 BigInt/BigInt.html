@@ -1,0 +1,29 @@
+<!--
+作者：Jackson
+时间：2022/12/06
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let num = 2 ** 53  //2的五十三次方，之前表示的最大值
+        console.log(num,num+1)
+        console.log(num === num+1) //true
+        let num2 = 9007199254740993n //加n表示bigInt
+        console.log(num2,num2+BigInt(1))
+
+        // 如果后端返回id值大于 2的53次方 那么很可能出现bug
+        // 解决方法1 传字符串
+        // 方法2 引入模块 json-bigint
+    </script>
+</html>

@@ -1,0 +1,46 @@
+<!--
+作者：Jackson
+时间：2022/12/06
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // promise.all  都操作好了执行
+        // promise.race 哪个快执行哪个
+        // promise.any 只要有一个执行就可以，都是rejected才执行catch
+
+        // 比如有会员联盟系统 只要有一个子账户就代表注册了联盟系统
+        let ajax1 = function(){
+            return new Promise(function(resolve, reject){
+                reject('失败1')
+            })
+        }
+        let ajax2 = function(){
+            return new Promise(function(resolve, reject){
+                reject('失败2')
+            })
+        }
+        let ajax3 = function(){
+            return new Promise(function(resolve, reject){
+                reject('失败3')
+            })
+        }
+        Promise.any([ajax1(),ajax2(),ajax3()]).then(function(res){
+            console.log(res)
+        }).catch((error)=>{
+            console.log(error) //AggregateError: All promises were rejected
+            // AggregateError: 比较详细的报错，ES12新出的
+        })
+    </script>
+</html>

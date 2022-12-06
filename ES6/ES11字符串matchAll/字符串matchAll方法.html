@@ -1,0 +1,50 @@
+<!--
+作者：Jackson
+时间：2022/12/06
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+ 
+        str = `
+        <ul>
+            <li>00001</li>
+            <li>00002</li>
+            <li>00003</li>
+            <li>00004</li>
+        </ul>
+        `
+        let reg = /<li>(.*)<\/li>/g
+        // console.log(str.match(reg))
+        // exec捕获
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+
+        let match = null
+        let list = []
+        while(match = reg.exec(str)){
+            console.log(match[1])
+            list.push(match[1])
+        }
+        console.log(list)
+        let obj = str.matchAll(reg)
+       for(let i of obj){
+        console.log(i)
+       }
+        
+    </script>
+</html>

@@ -1,0 +1,29 @@
+<!--
+作者：Jackson
+时间：2022/12/06
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let obj = {
+            name:'jackson',
+            location:{
+                city: '河北'
+            }
+        }
+        //如果后端没有传城市的数据，我们就不显示或显示默认的
+        console.log(obj && obj.location && obj.location.city)
+        console.log(obj?.location?.city ?? '河北小伙')//等同于上面   
+    </script>
+</html>
