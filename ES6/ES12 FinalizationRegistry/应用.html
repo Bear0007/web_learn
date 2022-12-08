@@ -1,0 +1,39 @@
+<!--
+作者：Jackson
+时间：2022/12/08
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <button id="like">like</button>
+    </body>
+    <script>
+
+    const registry = new FinalizationRegistry((data) => {
+            console.log('销毁了',data)
+    }); 
+    let like = new WeakRef(document.getElementById("like"))
+    let mymap = new WeakMap()
+    mymap.set(like.deref(), {
+        click: 0
+    })
+    like.deref().onclick = function () {
+        let times = mymap.get(like.deref())
+        times.click++
+    }
+
+    setTimeout(() => {
+        registry.register(like.deref(),mymap.get(like.deref()).click)
+        document.body.removeChild(like.deref())
+        console.log(mymap.get(like.deref()).click)
+    }, 2000)
+    </script>
+</html>

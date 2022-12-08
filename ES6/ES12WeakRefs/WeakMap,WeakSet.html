@@ -1,0 +1,33 @@
+<!--
+作者：Jackson
+时间：2022/12/08
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+      let obj = {   // 垃圾回收 obj = 1
+        name:'jackson',
+        like:'写bug'
+      };
+      let m1 = new WeakMap() // WeakMap 可以方便垃圾回收 他不会执行+1引用
+    //   WeakMap没有size属性 并且不能进行for遍历
+      m1.set(obj,'1111')
+    //   m1.set('key','value')  // WeakMap不能进行存储简单类型
+      console.log(m1)
+      obj = null // 垃圾回收 obj = 1-1 清空了
+      console.log(m1)
+
+      //WeakSet也一样
+    </script>
+</html>
