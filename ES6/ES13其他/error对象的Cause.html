@@ -1,0 +1,35 @@
+<!--
+作者：Jackson
+时间：2022/12/19
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function getData(){
+            try {
+                console.log(aaa)//未定义aaa
+            }
+            catch (e) {
+               throw new Error("传入参数不对",{cause:"少传入a参数"})
+
+               //cause 可以传入对象 {}
+            }
+        }
+        try {
+            getData();
+        }catch (e) {
+            console.log(e,e.cause)
+        }
+    </script>
+</html>

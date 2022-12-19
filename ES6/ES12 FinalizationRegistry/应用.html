@@ -35,5 +35,32 @@
         document.body.removeChild(like.deref())
         console.log(mymap.get(like.deref()).click)
     }, 2000)
+
+    let list = [
+    {
+        type:'name',
+        value:''
+    },
+    {
+        type:'age',
+        value:''
+    }, {
+        type:'sex',
+        value:''
+    },{
+        type:'address',
+        value:''
+    }
+]
+let obj = {
+name:"小明",
+age:18,
+sex:0,
+address:"上海"
+}
+list.forEach(ele=>{
+    ele.value = obj[ele.type]
+})
+console.log(list)
     </script>
 </html>

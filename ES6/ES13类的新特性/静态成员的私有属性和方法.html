@@ -1,0 +1,44 @@
+<!--
+作者：Jackson
+时间：2022/12/12
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+    //静态成员的私有属性和方法
+    //我们还可以给类定义静态成员和静态私有函数。类的静态方法可以使用this关键字访问其他的私有或者公有静态成员，
+
+    class Cache{
+        static #count = 0;
+
+        static getCount(){
+            return this.#count
+        }
+
+        #obj  ={}
+
+        get(key){
+            return this.#obj[key]
+        }
+        set(key,value){
+            this.#obj[key] =value
+        }
+    }
+
+    let cache = new Cache()
+    cache.set("name","jackson")
+
+    console.log(Cache.getCount())
+    </script>
+</html>

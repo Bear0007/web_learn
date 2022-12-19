@@ -1,0 +1,38 @@
+<!--
+作者：Jackson
+时间：2022/12/16
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script type="module"> //必须加module
+    //   function ajax(){
+    //     return new Promise(function(resolve, reject){
+    //         setTimeout(function(){
+    //             resolve('data-1111')
+    //         },2000)
+    //     })
+    //   }
+    //   let data = await ajax()
+    //   console.log(data)
+
+
+
+//    import moduleA from './1.js'
+//    console.log(moduleA)
+
+        console.log('开始')
+        let moduleA =await import('./1.js')
+        console.log(moduleA)
+    </script>
+</html>

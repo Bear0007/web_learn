@@ -1,0 +1,33 @@
+<!--
+作者：Jackson
+时间：2022/12/19
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+         let arr = [1, 2, 3, 4, 5]
+         let res = arr.find(value => value>2)
+         console.log(res,'大于2的第一个数')
+         let res1 = arr.findLast(value => value>2)
+         console.log(res1,'大于2的倒数第一个数')
+
+         //findIndex 找到索引
+            console.log('--------------------')
+         let arr2 = [1, 2, 3, 4, 5]
+         let rrr = arr2.findIndex(value => value>2)
+         console.log(rrr,'大于2的第一个数索引')
+         let rrr1 = arr2.findLastIndex(value => value>2)
+         console.log(rrr1,'大于2的倒数第一个数索引')
+    </script>
+</html>
