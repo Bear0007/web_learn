@@ -19,5 +19,5 @@
 
 具体还是看EXcel表吧，里面都对应着内容可以看链接
 
-![详情图片](\h5css3\list.jpg)
+![详情图片](https://bear0007.github.io/web_learn/h5css3/list.jpg)
 
