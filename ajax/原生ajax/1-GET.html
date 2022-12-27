@@ -1,0 +1,53 @@
+<!--
+作者：Jackson
+时间：2022/12/27
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <button>点击发送请求</button>
+        <div id="result"></div>
+    </body>
+    <script>
+        let btn = document.querySelector('button');
+        let result = document.querySelector('#result');
+        btn.addEventListener('click',function(){
+            //console.log('test')
+            //创建对象
+            const xhr = new XMLHttpRequest();
+            //初始化 设置发送请求和 url
+            xhr.open('GET','http://127.0.0.1:8000/server?a=100&b=200&c=300')
+            //发送
+            xhr.send();
+            //事件绑定 处理服务端返回的结果
+            // on when 当...时候
+            // readystate 当 xhr对象中的属性，表示状态 0 1 2 3 4 
+            // change 改变
+            xhr.onreadystatechange = function(){
+                //判断 (服务端返回了所有的结果)
+                if(xhr.readyState === 4){
+                    //判断响应状态码 200 300 400 500
+                    if(xhr.status >= 200 && xhr.status <300){
+                        //处理结果 行 头 空行 体
+                        //1.响应行
+                        console.log(xhr.status,'响应状态码')
+                        console.log(xhr.statusText,'状态字符串')
+                        console.log(xhr.getAllResponseHeaders,'所有响应头')
+                        console.log(xhr.response,'响应体')
+                        result.innerHTML = xhr.response
+                    }else{
+
+                    }
+                }
+            }
+        })
+    </script>
+</html>
