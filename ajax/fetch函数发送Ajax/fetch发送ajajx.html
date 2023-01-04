@@ -1,0 +1,39 @@
+<!--
+作者：Jackson
+时间：2023/01/01
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+        <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.2/axios.min.js"></script>
+    </head>
+    <body>
+        <button>fetch发送get请求</button>
+       
+    </body>
+    <script>
+        let btns = document.querySelectorAll('button');
+       
+        btns[0].addEventListener('click',function(){
+           
+            fetch('http://127.0.0.1:8000/server?vip=10',{
+                method: 'GET',
+                // headers: {
+                //     name:'jackson'
+                // }
+                
+            }).then(response => {
+                return response.text();
+            }).then(response => {
+                console.log(response)
+            })
+        })
+
+    </script>
+</html>

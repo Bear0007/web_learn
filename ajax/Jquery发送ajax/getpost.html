@@ -1,0 +1,54 @@
+<!--
+作者：Jackson
+时间：2023/01/01
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+        <script  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <button>点击发送get请求</button>
+        <button>点击发送post请求</button>
+        <div id="result"></div>
+    </body>
+    <script>
+        let btns = $('button');
+        let result = $('#result');
+        // console.log(bnts[0])
+        btns[0].addEventListener('click',function(){
+            //四个参数
+            /*
+                1. url路径
+                2.请求参数
+                3.响应处理
+                4.格式  json
+            */
+            $.get('http://127.0.0.1:8000/server',{a:100,b:200},function(data){
+                console.log(data);
+                
+            })
+        })
+
+        // post 请求
+        btns[1].addEventListener('click',function(){
+            //四个参数
+            /*
+                1. url路径
+                2.请求参数
+                3.响应处理
+                4.格式  json
+            */
+            $.post('http://127.0.0.1:8000/json-server',{a:100,b:200},function(data){
+                console.log(data);
+                
+            },'json')
+        })
+    </script>
+</html>

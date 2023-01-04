@@ -19,6 +19,9 @@ app.post('/server', (request, response) => {
 
     //设置响应头 跨域
     response.setHeader('Access-Control-Allow-Origin', '*')
+    response.setHeader('Access-Control-Allow-Methods:GET,POST,PUT,POST')
+    response.setHeader('Access-Control-Allow-Credentials', 'true')
+    response.setHeader('Access-Control-Allow-Headers','*')
     //设置响应体
     response.send("hellow bear")
 })
@@ -26,6 +29,9 @@ app.all('/json-server', (request, response) => {
 
     //设置响应头 跨域
     response.setHeader('Access-Control-Allow-Origin', '*')
+    response.setHeader('Access-Control-Allow-Methods:GET,POST,PUT,POST')
+    response.setHeader('Access-Control-Allow-Credentials', 'true')
+    response.setHeader('Access-Control-Allow-Headers:x-requested-with,content-type')
     //设置响应体
     let data = {
         'name':'jackson',

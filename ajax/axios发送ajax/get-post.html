@@ -1,0 +1,49 @@
+<!--
+作者：Jackson
+时间：2023/01/01
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+        <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/1.2.2/axios.min.js"></script>
+    </head>
+    <body>
+        <button>axios发送get请求</button>
+        <button>axios发送post请求</button>
+    </body>
+    <script>
+        let btns = document.querySelectorAll('button');
+        axios.defaults.baseURL = 'http://127.0.0.1:8000';
+        btns[0].addEventListener('click',function(){
+            axios.get('/server',{
+                params:{a:100,b:200},
+                Headers:{
+                    name:'jackson',
+                    age:23
+                },
+               
+            }).then(value => {
+                console.log(value)
+                console.log(value.data)
+            })
+        })
+
+
+        // // post 它有三个参数， 第二个是传递的参数
+        btns[1].addEventListener('click',function(){
+            axios.post('http://127.0.0.1:8000/server',{},{
+                
+               
+            }).then(value => {
+                console.log(value)
+             
+            })
+        })
+    </script>
+</html>

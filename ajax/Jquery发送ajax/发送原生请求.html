@@ -1,0 +1,43 @@
+<!--
+作者：Jackson
+时间：2023/01/01
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+        <script  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <button>点击发送ajax请求</button>
+     
+        <div id="result"></div>
+    </body>
+    <script>
+        let btns = $('button');
+        let result = $('#result');
+        // console.log(bnts[0])
+        btns[0].addEventListener('click',function(){
+           
+            $.ajax({
+                url:'http://127.0.0.1:8000/json-server',
+                data:{a:200,b:100},
+                type:'post',
+                dataType: 'json',
+                success: function(data){
+                    console.log(data)
+                },
+                timeout:2000,
+                error: function(){
+                    console.log("出错啦")
+                }
+            })
+        })
+
+    </script>
+</html>
