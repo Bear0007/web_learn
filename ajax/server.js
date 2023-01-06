@@ -54,7 +54,34 @@ app.all('/delay', (request, response) => {
    
 })
 
+
+// jsonp
+app.all('/jsonp-server', (request, response) => {
+
+   
+    //设置响应体
+    let data = {
+        'name':'jackson',
+        'age':22
+    }
+    let srt = JSON.stringify(data)
+    response.end(`handle(${srt})`)
+})
+
+// 原生jsonp
+app.all('/check-name', (request, response) => {
+
+   
+    //设置响应体
+    let data = {
+        'name':'jackson',
+        msg:'用户名已存在'
+    }
+    let srt = JSON.stringify(data)
+    response.end(`handle(${srt})`)
+})
 //监听端口启动服务
 app.listen(8000,()=>{
     console.log('服务已经启动，8000端口监听中')
 })
+

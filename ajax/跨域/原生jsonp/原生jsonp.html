@@ -1,0 +1,35 @@
+<!--
+作者：Jackson
+时间：2023/01/06
+内容：
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        请输入用户名<input type="text">
+        <p></p>
+    </body>
+    <script>
+        let input = document.querySelector('input');
+        let p = document.querySelector('p');
+        function handle(data) {
+            input.style.border = '1px solid red'
+            p.innerHTML = data.msg
+        }
+
+        input.addEventListener('blur',function(){
+            let username = input.value
+            const script = document.createElement('script');
+
+            script.src = 'http://127.0.0.1:8000/check-name';
+            document.body.appendChild(script);
+        })
+    </script>
+</html>
